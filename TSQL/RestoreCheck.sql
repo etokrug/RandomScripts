@@ -1,0 +1,9 @@
+/* TSQL */
+/* This script is for checking when the last database restore was */
+USE MSDB
+GO
+SELECT TOP 1 *
+FROM RESTOREHISTORY
+WITH (NOLOCK)
+WHERE (DESTINATION_DATABASE_NAME = '') -- CHANGE DB NAME HERE
+ORDER BY RESTORE_DATE DESC
